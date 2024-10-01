@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, UseGuards, Req, Param } from "@nestjs/common";
+import { Controller, Post, Body, Get, UseGuards, Req, Param, Delete } from "@nestjs/common";
 import { CreateUserDto } from "src/common/dtos/create-user.dto";
 import { UsersService } from "./users.service";
 import { Roles } from "src/common/decorators/roles.decorator/roles.decorator";
@@ -30,5 +30,9 @@ export class UsersController {
   @UseGuards(AuthGuard)
   async updateUserById(@Param('id') id: string , @Body() updateUserDto: CreateUserDto) {
     return this.userService.updateUser(id,updateUserDto);
+  }
+  @Delete(':id')
+  async deleteUser(@Param('id') id: string): Promise<void> {
+    return this.userService.deleteUser(id);
   }
 }

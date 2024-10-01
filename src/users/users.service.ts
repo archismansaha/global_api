@@ -22,8 +22,6 @@ export class UsersService {
     const user = new this.userModel({ ...createUserDto, password: hashedPassword });
     
     await user.save();
-    
-
     await this.redisService.set(`user:${user.id}`, user, 60); 
     return user;
   }
@@ -33,8 +31,6 @@ export class UsersService {
     const user = new this.userModel({ ...createUserDto, password: hashedPassword });
     
     await user.save();
-    
-  
     await this.redisService.set(`user:${user.id}`, user, 60); 
     return user;
   }
@@ -50,7 +46,7 @@ export class UsersService {
       throw new NotFoundException('User not found');
     }
 
-    await this.redisService.set(`user:${id}`, user, 60); 
+    await this.redisService.set(`user:${id}`, user, 60); // Cache user data for 60 seconds
     return user;
   }
 
@@ -63,7 +59,7 @@ export class UsersService {
       throw new NotFoundException('User not found');
     }
 
-    await this.redisService.set(`user:${id}`, user, 60); 
+    await this.redisService.set(`user:${id}`, user, 60); // Update cache with new user data
     return user;
   }
 
@@ -74,9 +70,18 @@ export class UsersService {
     }
 
     const users = await this.userModel.find().exec();
-    
-
     await this.redisService.set('users', users, 60); 
     return users;
+  }
+
+
+  async deleteUser(id: string): Promise<void> {
+    const user = await this.userModel.findByIdAndDelete(id).exec();
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+
+    await this.redisService.delete(`user:${id}`);
   }
 }

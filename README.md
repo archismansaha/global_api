@@ -13,7 +13,8 @@ REDIS_URL="rediss://default:AWIiAAIjcDEzNDMzODE1NjZlNDM0NmMxYmZiMWI2YzkzZDI3Mzc1
 - Caching  [ Write-through ]
 - Used Helemt [For adding security HTTP headers ]
 - Logging [ Used winston and write in local file ]
-
+- Simple User Management with Authorization [Get,Post,Update,Delete]
+- DockerRi
 # Global Settings 
 
 ![alt text](image.png)
