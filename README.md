@@ -1,4 +1,5 @@
 # env example
+
 ```
 DATABASE_URL="mongodb+srv://globalapi:globalapi@cluster0.kzfp1.mongodb.net/globalapi?retryWrites=true&w=majority&appName=Cluster0"
 JWT_SECRET="secretkey"
@@ -10,4 +11,15 @@ REDIS_URL="rediss://default:AWIiAAIjcDEzNDMzODE1NjZlNDM0NmMxYmZiMWI2YzkzZDI3Mzc1
 
 ![alt text](image.png)
 
-/logs => To fetch logs
+/logs [GET] => To fetch logs
+
+### For sending Notification to mobile with twilio
+
+/notifications [POST] => 
+
+```
+{
+  "message": "Hello Test!"
+}
+
+```
