@@ -1,0 +1,9 @@
+2024-10-01T12:09:42.101Z [error]: POST /users/register failed with error: Bad Request Exception in 5ms
+2024-10-01T12:09:42.102Z [error]: HTTP Error: {"statusCode":400,"timestamp":"2024-10-01T12:09:42.102Z","path":"/users/register","message":["property admin should not exist"]}
+2024-10-01T12:09:49.861Z [error]: POST /users/register failed with error: Bad Request Exception in 1ms
+2024-10-01T12:09:49.862Z [error]: HTTP Error: {"statusCode":400,"timestamp":"2024-10-01T12:09:49.861Z","path":"/users/register","message":["property roles should not exist"]}
+2024-10-01T12:10:47.275Z [error]: POST /users/register failed with error: E11000 duplicate key error collection: nest.users index: email_1 dup key: { email: "admin@example.com" } in 72ms
+2024-10-01T12:12:19.631Z [info]: POST /users/register responded with status undefined in 146ms
+2024-10-01T12:13:09.956Z [info]: GET /users responded with status undefined in 109ms
+2024-10-01T12:29:59.639Z [error]: HTTP Error: {"statusCode":403,"timestamp":"2024-10-01T12:29:59.639Z","path":"/users/66fbb81262547ab42105eb14","message":"Forbidden resource"}
+2024-10-01T12:30:06.168Z [info]: GET /logs responded with status undefined in 1ms
